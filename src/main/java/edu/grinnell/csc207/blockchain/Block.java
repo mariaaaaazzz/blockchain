@@ -21,7 +21,7 @@ public class Block {
      * @param prevHash hash of previous block 
      * @throws NoSuchAlgorithmException if SHA-256 is unavailable
      */
-    public Block(int num, int amount, Hash prevHash) throws NoSuchAlgorithmException {
+    public Block(int num, int amount, Hash prevHash) throws NoSuchAlgorithmException{
         this.num = num;
         this.amount = amount;
         this.prevHash = prevHash;
@@ -62,7 +62,8 @@ public class Block {
      * @param nonce    nonce to use
      * @throws NoSuchAlgorithmException if SHA-256 is unavailable
      */
-    public Block(int num, int amount, Hash prevHash, int nonce) throws NoSuchAlgorithmException {
+    public Block(int num, int amount, Hash prevHash, int nonce) 
+    throws NoSuchAlgorithmException {
         this.num = num;
         this.amount = amount;
         this.prevHash = prevHash;

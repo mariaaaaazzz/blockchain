@@ -24,13 +24,13 @@ public class BlockChainDriver {
 
             if (command.equals("help")) {
                 System.out.println("Valid commands:");
-                System.out.println("    mine: discovers the nonce for a given transaction");
-                System.out.println("    append: appends a new block onto the end of the chain");
-                System.out.println("    remove: removes the last block from the end of the chain");
-                System.out.println("    check: checks that the block chain is valid");
-                System.out.println("    report: reports the balances of Alice and Bob");
-                System.out.println("    help: prints this list of commands");
-                System.out.println("    quit: quits the program");
+                System.out.println("mine: discovers the nonce for a given transaction");
+                System.out.println("append: appends a new block onto the end of the chain");
+                System.out.println("remove: removes the last block from the end of the chain");
+                System.out.println("check: checks that the block chain is valid");
+                System.out.println("report: reports the balances of Alice and Bob");
+                System.out.println("help: prints this list of commands");
+                System.out.println("quit: quits the program");
 
             } else if (command.equals("mine")) {
                 System.out.print("Amount transferred? ");
@@ -53,7 +53,8 @@ public class BlockChainDriver {
                 chain.removeLast();
 
             } else if (command.equals("check")) {
-                System.out.println(chain.isValidBlockChain() ? "Chain is valid!" : "Chain is invalid!");
+                System.out.println(chain.isValidBlockChain() ? 
+                "Chain is valid!" : "Chain is invalid!");
 
             } else if (command.equals("report")) {
                 chain.printBalances();
