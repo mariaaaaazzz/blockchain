@@ -8,6 +8,8 @@ import java.security.NoSuchAlgorithmException;
  */
 public class BlockChain {
 
+    /** Simple singly linked list node that wraps a Block. 
+    */
     private static class Node {
         Block block;
         Node next;
@@ -20,6 +22,13 @@ public class BlockChain {
     private Node last;
 
 
+
+    /**
+     * Creates a chain with a single mined initial block holding the initial amount.
+     *
+     * @param initial the initial amount for Alice in the first block
+     * @throws NoSuchAlgorithmException if SHA-256 is unavailable
+     */
     public BlockChain(int initial) throws NoSuchAlgorithmException {
         Block firstBlock = new Block(0, initial, null);
         first = new Node(firstBlock);
@@ -27,19 +36,34 @@ public class BlockChain {
     }
 
   
+    /**
+     * Mines a candidate block for the given transaction,
+     * linked to the current last block.
+     *
+     * @param amount the transaction amount for the new block
+     * @return a mined Block
+     * @throws NoSuchAlgorithmException if SHA-256 is unavailable
+     */
     public Block mine(int amount) throws NoSuchAlgorithmException {
         int nextNum = last.block.getNum() + 1;
         return new Block(nextNum, amount, last.block.getHash());
     }
 
-
+    /**
+     * @return size of the chain
+     */
     public int getSize() {
         return last.block.getNum() + 1;
     }
 
 
+    /**
+     * Appends a block to the end of the chain if it's valid
+     *
+     * @param block the block to append
+     * @throws IllegalArgumentException if the block is not valid
+     */
     public void append(Block block) {
-
         if (block.getNum() != last.block.getNum() + 1) {
             throw new IllegalArgumentException("Invalid block number.");
         }
@@ -74,6 +98,11 @@ public class BlockChain {
     }
 
 
+    /**
+     * Removes the last block if there is more than one block.
+     *
+     * @return true if a block was removed; false otherwise.
+     */
     public boolean removeLast() {
         if (first == last) {
             return false;
@@ -88,11 +117,19 @@ public class BlockChain {
     }
 
 
+    /**
+     * Returns the hash of the last block.
+     *
+     * @return the last block's hash
+     */
     public Hash getHash() {
         return last.block.getHash();
     }
 
 
+    /**
+     * @return true if the chain is valid; false otherwise
+     */
     public boolean isValidBlockChain() {
         if (first == null) return false;
 
@@ -135,7 +172,10 @@ public class BlockChain {
         return true;
     }
 
-
+    /**
+     * Prints the balances: "Alice: X, Bob: Y".
+     * Bob = initial - Alice.
+     */
     public void printBalances() {
         int alice = 0;
         Node cur = first;
@@ -149,6 +189,9 @@ public class BlockChain {
     }
 
 
+    /**
+     * @return string representation of the chain
+     */
     public String toString() {
         String s = "";
         Node cur = first;
