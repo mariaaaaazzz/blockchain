@@ -4,6 +4,11 @@ Authors: Jiayi Zhang
 
 ## Resources
 
+Revisions:
+
+I added white spaces and blank lines to fix the style errors in all files.
+
+
 *  
 + Text editor: VS Code 1.101.2
 + Java version: "17.0.16"
