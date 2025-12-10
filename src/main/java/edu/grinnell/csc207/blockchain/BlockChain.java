@@ -8,8 +8,9 @@ import java.security.NoSuchAlgorithmException;
  */
 public class BlockChain {
 
-    /** Simple singly linked list node that wraps a Block. 
-    */
+    /**
+     * Simple singly linked list node that wraps a Block.
+     */
     private static class Node {
         Block block;
         Node next;
@@ -131,7 +132,9 @@ public class BlockChain {
      * @return true if the chain is valid; false otherwise
      */
     public boolean isValidBlockChain() {
-        if (first == null) return false;
+        if (first == null) {
+            return false;
+        }
 
         int alice = 0;
         Node prev = null;

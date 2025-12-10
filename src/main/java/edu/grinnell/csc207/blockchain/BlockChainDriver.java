@@ -1,6 +1,6 @@
 package edu.grinnell.csc207.blockchain;
-import java.util.Scanner;
 import java.security.NoSuchAlgorithmException;
+import java.util.Scanner;
 
 
 /**
@@ -53,8 +53,8 @@ public class BlockChainDriver {
                 chain.removeLast();
 
             } else if (command.equals("check")) {
-                System.out.println(chain.isValidBlockChain() ? 
-                "Chain is valid!" : "Chain is invalid!");
+                System.out.println(chain.isValidBlockChain()
+                    ? "Chain is valid!" : "Chain is invalid!");
 
             } else if (command.equals("report")) {
                 chain.printBalances();

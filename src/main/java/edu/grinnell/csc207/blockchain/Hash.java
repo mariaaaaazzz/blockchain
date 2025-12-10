@@ -5,7 +5,7 @@ import java.util.Arrays;
  * A wrapper class over a hash value (a byte array).
  */
 public class Hash {
-   private final byte[] data;
+    private final byte[] data;
 
   
    /**
@@ -61,7 +61,7 @@ public class Hash {
      * @return true if this hash is structurally equal to the argument.
      */
     public boolean equals(Object other) {
-        if (!(other instanceof Hash)){
+        if (!(other instanceof Hash)) {
             return false;
         }
         Hash o = (Hash) other;

@@ -1,7 +1,7 @@
 package edu.grinnell.csc207.blockchain;
+import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.nio.ByteBuffer;
 
 /**
  * A single block of a blockchain.
@@ -21,7 +21,7 @@ public class Block {
      * @param prevHash hash of previous block 
      * @throws NoSuchAlgorithmException if SHA-256 is unavailable
      */
-    public Block(int num, int amount, Hash prevHash) throws NoSuchAlgorithmException{
+    public Block(int num, int amount, Hash prevHash) throws NoSuchAlgorithmException {
         this.num = num;
         this.amount = amount;
         this.prevHash = prevHash;
@@ -42,7 +42,7 @@ public class Block {
             md.update(intToBytes(n));
             h = new Hash(md.digest());
 
-            if (h.isValid()){
+            if (h.isValid()) {
                 break;
             }
             n++;
@@ -62,8 +62,8 @@ public class Block {
      * @param nonce    nonce to use
      * @throws NoSuchAlgorithmException if SHA-256 is unavailable
      */
-    public Block(int num, int amount, Hash prevHash, int nonce) 
-    throws NoSuchAlgorithmException {
+    public Block(int num, int amount, Hash prevHash, int nonce)
+        throws NoSuchAlgorithmException {
         this.num = num;
         this.amount = amount;
         this.prevHash = prevHash;
@@ -120,11 +120,11 @@ public class Block {
      * @return summary of the block in string
      */
     public String toString() {
-        return "Block " + num +
-        " (Amount: " + amount +
-        ", Nonce: " + nonce +
-        ", prevHash: " + String.valueOf(prevHash) +
-        ", hash: " + hash.toString() + ")";
+        return "Block " + num
+            + " (Amount: " + amount
+            + ", Nonce: " + nonce
+            + ", prevHash: " + String.valueOf(prevHash)
+            + ", hash: " + hash.toString() + ")";
     }
 
 
